@@ -1,0 +1,56 @@
+{
+    "workbench.editor.empty.hint": "hidden",
+    "C_Cpp.default.compilerPath": "/usr/bin/clang",
+    "vscode-edge-devtools.webhint": false,
+    "workbench.colorTheme": "ayu-owl",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.secondarySideBar.defaultVisibility": "visible",
+    "files.autoSave": "afterDelay",
+    "[c]": {
+        "editor.defaultFormatter": "keyhr.42-c-format"
+    },
+    "workbench.startupEditor": "none",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "explorer.compactFolders": false,
+    "editor.quickSuggestions": {
+        "other": "off"
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "editor.inlineSuggest.edits.showCollapsed": true,
+    "editor.quickSuggestionsDelay": 3,
+    "editor.inlineSuggest.experimental.triggerCommandOnProviderChange": true,
+    "editor.tabCompletion": "on",
+    "editor.inlineSuggest.enabled": false,
+
+"multiCommand.commands": [
+    {
+        "command": "multiCommand.compileRun",
+        "sequence": [
+            "workbench.action.terminal.focus",
+            {
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                    "text": "gcc \"${file}\" -Wall -Wextra -Werror && ./a.out; find . -name \"*.out\" -exec rm {} \\;\n"
+                }
+            }
+        ]
+    },
+    {
+        "command": "multiCommand.clearAfter4",
+        "interval": 4000,
+        "sequence": [
+            "multiCommand.compileRun",
+            "workbench.action.terminal.clear"
+        ]
+    },
+    {
+        "command": "multiCommand.hideAfter1",
+        "interval": 1000,
+        "sequence": [
+            "multiCommand.clearAfter4",
+            "workbench.action.togglePanel"
+        ]
+    }
+]
+
+}

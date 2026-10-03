@@ -1,0 +1,280 @@
+// (\n = newline) (\t = tab) ($1 = placeholder) (alt = option)
+[
+//******************************************************************************************************************************************************************
+//    terminal
+//******************************************************************************************************************************************************************
+    // compile, run, then delete .out files
+    {
+    "key": "ctrl+d",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "gcc ${file} -Wall -Wextra -Werror && ./a.out; find . -name \"*.out\" -exec rm {} \\;\n"
+        }
+    },
+    // open terminal, compile, run, delete .out files, clean and close terminal (5 sec)
+    {
+    "key": "ctrl+s",
+    "command": "multiCommand.hideAfter1"
+    },
+    
+    // delete .out shortcut:
+    {
+    "key": "ctrl+c",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "rm -f *.out\n"
+        }
+    },
+    // delete .o shortcut:
+    // {
+    // "key": "ctrl+s",
+    // "command": "workbench.action.terminal.sendSequence",
+    // "args": {
+    //     "text": "rm -f *.o\n"
+    //     }
+    // },
+    // delete executables in subfolders shortcut:
+    {
+    "key": "ctrl+shift+d",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "find . -name \"*.out\" -delete\n"
+        }
+    },
+    // upload to git shortcut:
+    {
+    "key": "shift+cmd+g",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "git add . && git commit -m \"message\" && git push\n"
+        }
+    },
+
+//******************************************************************************************************************************************************************
+//    variables:
+//******************************************************************************************************************************************************************
+    // int shortcut
+    {
+        "key": "shift+i",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "int\t\ti;\n\ni = 0;\n"
+        }
+    },
+    // char shortcut
+    {
+        "key": "shift+c",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "char\tc;"
+        }
+    },
+    // str[i] shortcut
+    {
+        "key": "shift+s",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "str[i]"
+        }
+    },
+    // size_t shortcut
+    {
+        "key": "cmd+s",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "size_t"
+        }
+    },
+    // unsigned shortcut
+    {
+        "key": "shift+u",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "unsigned "
+        }
+    },
+    // unsigned char typecast
+    {
+        "key": "cmd+u",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "(unsigned char *)$1"
+        }
+    },
+    // unsigned char *str + typecast
+    {
+        "key": "ctrl+u",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "unsigned char\t*str;\n\nstr = (unsigned char *)$1;"
+        }
+    },
+
+//******************************************************************************************************************************************************************
+//    statments:
+//******************************************************************************************************************************************************************
+    // return shortcut
+    {
+        "key": "shift+r",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "return ($1);"
+        }
+    },
+    // if shortcut no braces
+    {
+        "key": "cmd+i",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "if ($1)\n\t"
+        }
+    },
+    // if with braces shortcut
+    {
+        "key": "ctrl+i",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "if ($1)\n{\n\t\n}"
+        }
+    },
+
+//******************************************************************************************************************************************************************
+//    loops
+//******************************************************************************************************************************************************************
+    // while loop shortcut
+    {
+        "key": "cmd+w",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "while ($1)\n{\n\t\n}"
+        }
+    },
+    // string shortcut
+    {
+        "key": "alt+s",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "while (str[i])\n{\n\ti++;$1\n}"
+        }
+    },
+
+//******************************************************************************************************************************************************************
+//    write / output
+//******************************************************************************************************************************************************************
+    // write shortcut
+    {
+        "key": "shift+w",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "write(1, &$1, 1);"
+        }
+    },
+    // write char shortcut
+    {
+        "key": "alt+w",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "write(1, \"$1\", 1);"
+        }
+    },
+    //printf shortcut
+    {
+        "key": "shift+p",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "printf(\"%d\\n\", $1);"
+        }
+    },
+    //printf empty shortcut
+    {
+        "key": "alt+p",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "printf(\"$1\");"
+        }
+    },
+
+//******************************************************************************************************************************************************************
+//    testing mains
+//******************************************************************************************************************************************************************
+    // main shortcut
+    {
+    "key": "shift+m",
+    "command": "editor.action.insertSnippet",
+    "args": {
+    "snippet": "int main(void)\n{\n\t$0\n\treturn 0;\n}\n"
+        }
+    },
+
+//******************************************************************************************************************************************************************
+//    header.h
+//******************************************************************************************************************************************************************
+    // #include header shortcut 
+    {
+        "key": "ctrl+h",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "#include \"header.h\""
+        }
+    },
+    // #include ../header shortcut 
+    {
+        "key": "shift+h",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "#include \"../header.h\""
+        }
+    },
+    // header file shortcut 
+    {
+        "key": "alt+h",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "#ifndef HEADER_H\n# define HEADER_H\n\n#include <unistd.h>\n#include <stdlib.h>\n#include <stdio.h>\n#include <string.h>\n#include <termios.h>\n\n#endif"
+        }
+    },
+
+//******************************************************************************************************************************************************************
+//    other
+//******************************************************************************************************************************************************************
+    // library shortcut 
+    {
+        "key": "ctrl+l",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "#include <unistd.h>\n#include <stdio.h>\n#include <stdlib.h>"
+        }
+    },
+    // (space to write) multiline comment shortcut 
+    {
+        "key": "cmd+m",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "/*\n$1\n*/"
+        }
+    },
+
+]
+
+
