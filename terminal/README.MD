@@ -1,64 +1,31 @@
-Bash & Zsh Aliases — Quick Guide
+# 🖥️ Terminal Configuration
 
-Aliases are shortcuts for terminal commands.
+My personal Zsh aliases and terminal shortcuts for macOS.
 
-1. Find Your Alias File
+⸻
 
-Zsh (default on macOS):
+## ⚙️ Setup
 
-~/.zshrc
-
-Bash:
-
-~/.bashrc
-
-Check your current shell:
-
-echo $SHELL
-
-2. Open Your Alias File
-
-Open in VS Code:
+1. Open Configuration
 
 code ~/.zshrc
 
-Or edit directly in the terminal:
-
-nano ~/.zshrc
-
-3. Create Aliases
-
-Add aliases to your configuration file:
+2. Add Aliases
 
 alias c='clear'
 alias ll='ls -la'
 alias gs='git status'
-alias cc='cc -Wall -Wextra -Werror'
 
-4. Save & Apply Changes
-
-Reload your configuration:
+3. Apply Changes
 
 source ~/.zshrc
 
-5. View Existing Aliases
+⸻
 
-List all active aliases:
+## 📌 Useful Commands
 
-alias
-
-Search for aliases in your configuration:
-
-grep "alias" ~/.zshrc
-
-6. Remove an Alias
-
-Delete its line from ~/.zshrc, then reload:
-
-source ~/.zshrc
-
-To remove an alias temporarily:
-
-unalias gs
-
-Note: Changes saved in ~/.zshrc persist across terminal sessions. Temporary aliases disappear when the shell session ends.
+Command	Description
+alias	List active aliases
+grep "alias" ~/.zshrc	Find saved aliases
+unalias name	Temporarily remove an alias
+echo $SHELL	Check current shell
