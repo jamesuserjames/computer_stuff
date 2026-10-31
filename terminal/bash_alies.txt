@@ -1,3 +1,53 @@
+Bash alias
+
+To view all current aliases, use the alias command without arguments
+To remove an alias, use unalias name
+To make an alias permanent, add it to your ~/.bashrc or ~/.bash_profile file
+
+# Git aliases
+alias g='git'
+alias ga='git add'
+alias gcl='git clone'
+alias gs='git status'
+alias gci='git commit'
+alias gco='git checkout'
+alias gcob='git checkout branch'
+alias gb='git branch'
+alias gp='git push'
+alias grm='git rm'
+
+# 🧰 Git commands
+* alias gs="git status"
+* alias gst="git status -sb"
+* alias gl="git log"
+* alias ga="git add"
+* alias gaa="git add -A"
+* alias gal="git add ."
+* alias gall="git add ."
+* alias gca="git commit -a"
+* alias gc="git commit -m"
+* alias gcot="git checkout"
+* alias gchekout="git checkout"
+* alias gco="git checkout"
+* alias gcb="git checkout -b"
+* alias gb="git branch"
+* alias gpo="git push origin"
+* alias gpl="git pull origin"
+* alias gd="git diff"
+* alias gclean="git reset --hard && git clean -df"
+* alias gundo="git reset --soft HEAD~1"
+* alias gchckout="git checkout"
+* alias gckout="git checkout"
+* alias go="git push -u origin"
+* alias gsh='git stash'
+
+# 📂 Change Directories
+* alias .="cd .."
+
+# 🧹 Clear
+* alias c="clear"
+
+Bash alias used
 # Basic workflow
 alias gs='git status'
 alias ga='git add'
@@ -27,5 +77,4 @@ alias gsh='git stash'
 
 # Terminal
 alias c='clear'
-alias ..='cd ..'alias mini='~/mini-moulinette/mini-moul.sh'
-alias mini='~/mini-moulinette/mini-moul.sh'
+alias ..='cd ..'
