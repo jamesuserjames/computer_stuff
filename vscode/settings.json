@@ -23,34 +23,63 @@
     "editor.inlineSuggest.enabled": false,
 
 "multiCommand.commands": [
-    {
-        "command": "multiCommand.compileRun",
-        "sequence": [
-            "workbench.action.terminal.focus",
-            {
-                "command": "workbench.action.terminal.sendSequence",
-                "args": {
-                    "text": "gcc \"${file}\" -Wall -Wextra -Werror && ./a.out; find . -name \"*.out\" -exec rm {} \\;\n"
-                }
-            }
-        ]
-    },
-    {
-        "command": "multiCommand.clearAfter4",
-        "interval": 4000,
-        "sequence": [
-            "multiCommand.compileRun",
-            "workbench.action.terminal.clear"
-        ]
-    },
-    {
-        "command": "multiCommand.hideAfter1",
-        "interval": 1000,
-        "sequence": [
-            "multiCommand.clearAfter4",
-            "workbench.action.togglePanel"
-        ]
-    }
-]
 
+    {
+    "command": "multiCommand.compileRun",
+    "sequence": [  
+        "workbench.action.terminal.focus",
+        {
+            "command": "workbench.action.terminal.sendSequence",
+            "args":
+            {
+                "text": "gcc \"${file}\" -Wall -Wextra -Werror && ./a.out; find . -name \"*.out\" -exec rm {} \\;\n"
+            }
+        }
+    ]
+    },
+    
+    {
+    "command": "multiCommand.clearAfter4",
+    "interval": 4000,
+    "sequence": [
+        "multiCommand.compileRun",
+        "workbench.action.terminal.clear"
+        ]
+    },
+    {
+    "command": "multiCommand.compileClearHide",
+    "interval": 1,
+    "sequence": [
+        "multiCommand.clearAfter4",
+        "workbench.action.closePanel"
+        ]
+    },
+
+    {
+    "command": "multiCommand.compileClearHideeee",
+    "interval": 3000,
+    "sequence": [
+        "multiCommand.compileRun",
+        "workbench.action.closePanel"
+        ]
+    },
+
+
+
+    {
+    "command": "multiCommand.compileRunKeepOpen",
+    "sequence": [
+        "workbench.action.terminal.focus",
+        {
+            "command": "workbench.action.terminal.sendSequence",
+            "args": {
+                "text": "gcc \"${file}\" -Wall -Wextra -Werror && ./a.out; find . -name \"*.out\" -exec rm {} \\;\n"
+            }
+        }
+    ]
+}
+
+
+
+]
 }

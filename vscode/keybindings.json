@@ -11,28 +11,24 @@
         "text": "gcc ${file} -Wall -Wextra -Werror && ./a.out; find . -name \"*.out\" -exec rm {} \\;\n"
         }
     },
-    // open terminal, compile, run, delete .out files, clean and close terminal (5 sec)
+    // open terminal, compile, run, delete .out files, close terminal (5 sec)
     {
     "key": "ctrl+s",
-    "command": "multiCommand.hideAfter1"
+    "command": "multiCommand.compileClearHide"
     },
-    
-    // delete .out shortcut:
+    // open terminal, compile, run, delete .out files, clean and close terminal (5 sec)
     {
-    "key": "ctrl+c",
-    "command": "workbench.action.terminal.sendSequence",
-    "args": {
-        "text": "rm -f *.out\n"
-        }
+    "key": "ctrl+a",
+    "command": "multiCommand.compileClearHideeee"
     },
-    // delete .o shortcut:
-    // {
-    // "key": "ctrl+s",
-    // "command": "workbench.action.terminal.sendSequence",
-    // "args": {
-    //     "text": "rm -f *.o\n"
-    //     }
-    // },
+    // open terminal, compile, run, delete .out files (keep terminal open)
+    {
+    "key": "ctrl+z",
+    "command": "multiCommand.compileRunKeepOpen"
+    },
+
+
+
     // delete executables in subfolders shortcut:
     {
     "key": "ctrl+shift+d",
@@ -68,7 +64,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus",
         "args": {
-        "snippet": "char\tc;"
+        "snippet": "char\tc\n;"
         }
     },
     // str[i] shortcut
@@ -86,16 +82,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus",
         "args": {
-            "snippet": "size_t"
-        }
-    },
-    // unsigned shortcut
-    {
-        "key": "shift+u",
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus",
-        "args": {
-        "snippet": "unsigned "
+            "snippet": "size_t\ts;\n\ns = 0;\n"
         }
     },
     // unsigned char typecast
@@ -158,15 +145,6 @@
         "when": "editorTextFocus",
         "args": {
         "snippet": "while ($1)\n{\n\t\n}"
-        }
-    },
-    // string shortcut
-    {
-        "key": "alt+s",
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus",
-        "args": {
-            "snippet": "while (str[i])\n{\n\ti++;$1\n}"
         }
     },
 
@@ -273,7 +251,7 @@
         "args": {
             "snippet": "/*\n$1\n*/"
         }
-    },
+    }
 
 ]
 
