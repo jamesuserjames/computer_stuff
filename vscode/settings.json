@@ -73,7 +73,7 @@
         {
             "command": "workbench.action.terminal.sendSequence",
             "args": {
-                "text": "gcc \"${file}\" -Wall -Wextra -Werror && ./a.out; find . -name \"*.out\" -exec rm {} \\;\n"
+                "text": "clear && gcc \"${file}\" -Wall -Wextra -Werror && ./a.out; find . -name \"*.out\" -exec rm {} \\;\n"
             }
         }
     ]

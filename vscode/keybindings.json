@@ -49,7 +49,7 @@
 //******************************************************************************************************************************************************************
 //    variables:
 //******************************************************************************************************************************************************************
-    // int shortcut
+    // int i shortcut
     {
         "key": "shift+i",
         "command": "editor.action.insertSnippet",
@@ -58,13 +58,22 @@
             "snippet": "int\t\ti;\n\ni = 0;\n"
         }
     },
+    // int j shortcut
+    {
+        "key": "shift+j",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "int\t\tj;\n$1\nj = 0;"
+        }
+    },
     // char shortcut
     {
         "key": "shift+c",
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus",
         "args": {
-        "snippet": "char\tc\n;"
+        "snippet": "char\tc;\n\n"
         }
     },
     // str[i] shortcut
@@ -169,13 +178,22 @@
         "snippet": "write(1, \"$1\", 1);"
         }
     },
+    // write newline shortcut
+    {
+        "key": "shift+n",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+        "snippet": "write(1, \"\\n\", 1);"
+        }
+    },
     //printf shortcut
     {
         "key": "shift+p",
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus",
         "args": {
-            "snippet": "printf(\"%d\\n\", $1);"
+            "snippet": "printf(\"%d\", $1);"
         }
     },
     //printf empty shortcut
@@ -251,8 +269,25 @@
         "args": {
             "snippet": "/*\n$1\n*/"
         }
+    },
+    // multidementional arrey shortcut 
+    {
+        "key": "shift+g",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "int\t\tj;\nint\t\ti;\n\ni = 0;\nwhile (i < 3)\n{\n\tj = 0;\n\twhile (j < 3)\n\t{\n\t\t$1\n\t\tj++;\n\t}\n\ti++;\n}"
+        }
+    },
+    // grid[i][j] shortcut 
+    {
+        "key": "cmd+g",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "grid[i][j]"
+        }
     }
-
 ]
 
 
